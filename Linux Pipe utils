@@ -1,0 +1,3 @@
+cat test.txt | grep yogi| wc -l >output.txt
+nano test.xml contents(1 yogi 2 yogi 3 mark 4 josh 5 Tsega 6 Nish)
+cat output.txt (result 2)

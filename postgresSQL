@@ -1,0 +1,39 @@
+drop table IF EXISTS "cnrm_clinical_trial_referral" cascade;
+drop sequence IF EXISTS "cnrm_subject_seq" cascade;
+ 
+create sequence cnrm_subject_seq
+    increment 1
+    minvalue 1
+    maxvalue 9223372036854775807
+    start 1
+    cache 1;
+     
+create table cnrm_clinical_trial_referral
+(
+subject_id      bigint default nextval('cnrm_subject_seq'),
+ first_name character varying(64),
+  middle_name character varying(64),
+  last_name character varying(64),
+ address     character varying(255),
+ city character varying(50),
+ state character varying(20),
+ zip_code character varying(15),
+ phone_number character varying(30),
+  alternate_phone_number character varying(30),
+  email_address character varying(128),
+  age  bigint,
+    injury_year bigint,
+   tbi_diagnosis boolean default FALSE,
+    tbi_symptoms boolean default FALSE,
+    secondary_diagnosis_pts boolean default FALSE,
+        secondary_symptoms_pts boolean default FALSE,
+        prior_mri  boolean default FALSE,
+        sharpnel boolean default  FALSE,
+        deers_eligible boolean default FALSE,
+        military_status character varying(20),
+        study_interest character varying(50),
+        other_cnrm_studies_enrollment  boolean default FALSE,
+        other_enrolled_study_name character varying(30),
+        information_source character varying(100),
+        symptoms character varying(100)
+        );

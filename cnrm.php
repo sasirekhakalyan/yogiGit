@@ -189,8 +189,8 @@ div#mainContiner{
 
 <tr>
 <td>Enrolled in other CNRM studies?</td><td>
-<input type="radio" name="other_cnrm_studies_enrollment" value="true" required>Yes
-<input type="radio" name="other_cnrm_studies_enrollment" value="false">No
+<input type="radio" id="cnrm_other_yes" name="other_cnrm_studies_enrollment" value="true" required>Yes
+<input type="radio" id="cnrm_other_no" name="other_cnrm_studies_enrollment" value="false">No
 </td>
 <td>If Yes, Study Name</td><td><input type="text" name="other_enrolled_study_name" /></td>
 </tr>
@@ -259,7 +259,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 }else{
- echo "Error : Please correct all validation errors.\n";
+ //echo "Error : Please correct all validation errors.\n";
  return;
 }
 
@@ -274,10 +274,10 @@ function test_input($data) {
 echo "By Yograraj Khanal on PHP version " . phpversion();
 echo "<br />";
 
-   $host        = "host = localhost";
+   $host        = "host = proforms-stage-db.cit.nih.gov";
    $port        = "port = 5432";
    $dbname      = "dbname = cnrm_data";
-   $credentials = "user =cnrm_user  password=pass";
+   $credentials = "user =proforms_app_stg  password=Qhwq0iFZkKAc1NaU";
 
 
 	
@@ -358,11 +358,6 @@ EOF;
 
 
 
-
-<script>
-
-
-</script>
 </body>
 
 </html>

@@ -1,0 +1,19 @@
+terminal > ssh-keygen -t rsa
+/Users/<<username>>/.ssh/id_rsa.pub
+/Users/<<username>>/.ssh/id_rsa
+chmod 0600 ~/.ssh/id_rsa
+nano ~/.ssh/config
+...
+Host your_svn_server_hostname
+ 
+HostName your_svn_server_hostname
+ 
+User khanaly
+ 
+IdentitiesOnly yes
+ 
+IdentityFile /Users/{username}/.ssh/id_rsa
+...
+
+
+ssh -I /Library/OpenSC/lib/opensc-pkcs11.so {username}@hostname

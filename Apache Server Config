@@ -17,7 +17,7 @@ DocumentRoot "/Users/{username}/Sites"
 <IfModule unixd_module>
 .....
  
-User khanaly
+User {username}
  
 .....
  

@@ -6,11 +6,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <style>
 
-
+<style>
 input[type=text]:focus {
     background-color: lightblue;
 }
-
 select {
     width: 100%;
     padding: 16px 20px;
@@ -27,14 +26,12 @@ input[type=button], input[type=submit], input[type=reset] {
     margin: 4px 2px;
     cursor: pointer;
 }
-
 div#mainContiner{
  background-color: #f2f2f2;
   padding-top: 10px;
   padding-bottom: 10px;
-  padding-left: 100px; 
+  padding-left: 100px;
 }
-
 .select-style {
     border: 1px solid #ccc;
     width: 120px;
@@ -42,7 +39,6 @@ div#mainContiner{
     overflow: hidden;
     background: #fafafa url("img/icon-select.png") no-repeat 90% 50%;
 }
-
 .select-style select {
     padding: 5px 8px;
     width: 130%;
@@ -52,10 +48,10 @@ div#mainContiner{
     background-image: none;
     -webkit-appearance: none;
 }
-
 .select-style select:focus {
     outline: none;
 }
+</style>
 
 </style>
 </head>
@@ -116,7 +112,7 @@ div#mainContiner{
 
 
 <tr>
-<td>TBI Symptoms:</td>
+<td>TBI symptoms:</td>
 <td>
 <input type="radio" name="tbi_symptoms" value="true" required>Yes
 <input type="radio" name="tbi_symptoms" value="false">No
@@ -131,13 +127,13 @@ div#mainContiner{
 <input type="radio" name="secondary_diagnosis_pts" value="true" required>Yes
 <input type="radio" name="secondary_diagnosis_pts" value="false">No
 </td>
-<td>What Symptoms of TBI are  most important symptoms to find treatment for?</td>
+<td>What symptoms of TBI are  most important symptoms to find treatment for?</td>
 <td>
 
-<input type="checkbox" name="symptoms" value="SleepDisturbances">Sleep Disturbances
-<input type="checkbox" name="symptoms" value="Irritability">irritability-emotional disturbances
-<input type="checkbox" name="symptoms" value="Depression"> feelings of depression
-<input type="checkbox" name="symptoms" value="seizures"> seizures
+<input type="checkbox" name="symptoms[]" value="SleepDisturbances">Sleep Disturbances
+<input type="checkbox" name="symptoms[]" value="Irritability">irritability-emotional disturbances
+<input type="checkbox" name="symptoms[]" value="Depression"> feelings of depression
+<input type="checkbox" name="symptoms[]" value="seizures"> seizures
 
 </td>
 </tr>
@@ -151,9 +147,9 @@ div#mainContiner{
 <td>
 </td>
 <td>
-<input type="checkbox" name="symptoms" value="VisualDisturbances">Visual Disturbances
-<input type="checkbox" name="symptoms" value="Memory Loss"> memory loss
-<input type="checkbox" name="symptoms" value="Headache">Headache
+<input type="checkbox" name="symptoms[]" value="VisualDisturbances">Visual Disturbances
+<input type="checkbox" name="symptoms[]" value="Memory Loss"> memory loss
+<input type="checkbox" name="symptoms[]" value="Headache">Headache
 </td>
 </tr>
 
@@ -165,9 +161,9 @@ div#mainContiner{
 <td>
 </td>
 <td>
-<input type="checkbox" name="symptoms" value="PoorAtention">poor attention
+<input type="checkbox" name="symptoms[]" value="PoorAtention">poor attention
 
-<input type="checkbox" name="symptoms" value="Dizziness">dizziness/loss of balance
+<input type="checkbox" name="symptoms[]" value="Dizziness">dizziness/loss of balance
 </td>
 </tr>
 
@@ -182,8 +178,8 @@ div#mainContiner{
 </td>
 
 <td>
-<input type="checkbox" name="symptoms" value="Concentration">Concentration
-<input type="checkbox" name="symptoms" value="Irritability">irritability-emotional disturbances
+<input type="checkbox" name="symptoms[]" value="Concentration">Concentration
+<input type="checkbox" name="symptoms[]" value="Irritability">irritability-emotional disturbances
 </td>
 </tr>
 
@@ -239,20 +235,21 @@ $first_name = $middle_name = $last_name =  "";
 if(isset($_POST["submit"]))
 {
 
-$age = '$_POST[age]';
-$min = 18;
-$max = 85;
 
-if (filter_var($age, FILTER_VALIDATE_INT, array("options" => array("min_range"=>$min, "max_range"=>$max))) === false) {
-    echo("Variable value is not within the legal range");
-} else {
-    echo("Variable value is within the legal range");
-}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $name = test_input($_POST["first_name"]);
   $email = test_input($_POST["middle_name"]);
   $website = test_input($_POST["last_name"]);
+  
+    if(!empty($_POST["symptoms"])) {
+    $symptoms_list = implode(', ', $_POST["symptoms"]);
+    echo "<br />";
+    echo "this is the val ". $symptoms_list;
+    echo "<br />";
+
+
+  }
 
 }
 
@@ -271,13 +268,14 @@ function test_input($data) {
 }
 
 
+
 echo "By Yograraj Khanal on PHP version " . phpversion();
 echo "<br />";
 
-   $host        = "host = localhost";
+   $host        = "host = proforms-stage-db.cit.nih.gov";
    $port        = "port = 5432";
    $dbname      = "dbname = cnrm_data";
-   $credentials = "user =user  password=pass";
+   $credentials = "user =proforms_app_stg  password=Qhwq0iFZkKAc1NaU";
 
 
 	
@@ -342,7 +340,7 @@ $sql =<<<EOF
     '$_POST[other_cnrm_studies_enrollment]',
      '$_POST[other_enrolled_study_name]',
      '$_POST[information_source]',
-     '$_POST[symptoms]'
+     '$symptoms_list'
 		);
 EOF;
 

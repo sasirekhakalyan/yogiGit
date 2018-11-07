@@ -1,6 +1,7 @@
 brew install postgresql
 brew services start postgresql
 pg_ctl -D /usr/local/var/postgres start
+createuser -s postgres
 
 
 

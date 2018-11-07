@@ -1,3 +1,9 @@
+brew install postgresql
+brew services start postgresql
+pg_ctl -D /usr/local/var/postgres start
+
+
+
 drop table IF EXISTS "cnrm_clinical_trial_referral" cascade;
 drop sequence IF EXISTS "cnrm_subject_seq" cascade;
  

@@ -272,7 +272,7 @@ function test_input($data) {
 echo "By Yograraj Khanal on PHP version " . phpversion();
 echo "<br />";
 
-include("db_config.php");
+include("pg_connection.php");
 
 echo "<br />";
 

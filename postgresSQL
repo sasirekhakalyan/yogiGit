@@ -5,8 +5,21 @@ createuser -s postgres
 
 
 
+drop table IF EXISTS "cnrm_user" cascade;
 drop table IF EXISTS "cnrm_clinical_trial_referral" cascade;
+drop sequence IF EXISTS "cnrm_user_seq" cascade;
 drop sequence IF EXISTS "cnrm_subject_seq" cascade;
+ 
+ 
+ 
+create sequence cnrm_user_seq
+    increment 1
+    minvalue 1
+    maxvalue 9223372036854775807
+    start 1
+    cache 1;
+ 
+ 
  
 create sequence cnrm_subject_seq
     increment 1
@@ -15,6 +28,24 @@ create sequence cnrm_subject_seq
     start 1
     cache 1;
      
+ 
+ 
+create table cnrm_user
+(
+ userid   bigint default nextval('cnrm_user_seq'),
+ username character varying(255) not null,
+ password character varying(255) not null,
+ email  character varying(255) not null,
+ active  character varying(255) not null,
+ token  character varying(255),
+ role character varying(255),
+ comments character varying(255),
+ created_on TIMESTAMP NOT NULL,
+ last_login TIMESTAMP
+ );
+ 
+ 
+ 
 create table cnrm_clinical_trial_referral
 (
 subject_id      bigint default nextval('cnrm_subject_seq'),

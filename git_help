@@ -10,3 +10,5 @@ git commit <filename> -m "bugfix, in <filename""
 git init
 git remote add origin https://github.com/yrkhanal/yogiGit
 git pull origin master
+
+In eclipse you can add the repo and use UI command to same thing.

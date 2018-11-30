@@ -4,56 +4,8 @@
 <head>
 <title>Referral Program Elements</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<style>
-
-<style>
-input[type=text]:focus {
-    background-color: lightblue;
-}
-select {
-    width: 100%;
-    padding: 16px 20px;
-    border: none;
-    border-radius: 4px;
-    background-color: #f1f1f1;
-}
-input[type=button], input[type=submit], input[type=reset] {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-decoration: none;
-    margin: 4px 2px;
-    cursor: pointer;
-}
-div#mainContiner{
- background-color: #f2f2f2;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 100px;
-}
-.select-style {
-    border: 1px solid #ccc;
-    width: 120px;
-    border-radius: 3px;
-    overflow: hidden;
-    background: #fafafa url("img/icon-select.png") no-repeat 90% 50%;
-}
-.select-style select {
-    padding: 5px 8px;
-    width: 130%;
-    border: none;
-    box-shadow: none;
-    background: transparent;
-    background-image: none;
-    -webkit-appearance: none;
-}
-.select-style select:focus {
-    outline: none;
-}
-</style>
-
-</style>
+<link rel="stylesheet" type="text/css" href="css/cnrm.css" charset="UTF-8">
+<script src="js/cnrm.js"></script>
 </head>
 
 <body>
@@ -224,61 +176,9 @@ div#mainContiner{
 </form>
 
 
-
 <?php
-
-
-// define variables and set to empty values
-$first_name = $middle_name = $last_name =  "";
-
-
-if(isset($_POST["submit"]))
-{
-
-
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $name = test_input($_POST["first_name"]);
-  $email = test_input($_POST["middle_name"]);
-  $website = test_input($_POST["last_name"]);
-  
-    if(!empty($_POST["symptoms"])) {
-    $symptoms_list = implode(', ', $_POST["symptoms"]);
-    echo "<br />";
-    echo "this is the val ". $symptoms_list;
-    echo "<br />";
-
-
-  }
-
-}
-
-
-
-}else{
- //echo "Error : Please correct all validation errors.\n";
- return;
-}
-
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
-
-
-
-echo "By Yograraj Khanal on PHP version " . phpversion();
-echo "<br />";
-
-include("pg_connection.php");
-
-echo "<br />";
-
-include("pg_insert_data.php");
+include("validation.php");
 ?>
-
 
 
 </body>

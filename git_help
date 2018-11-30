@@ -5,6 +5,8 @@ git push -u origin master
 git mv db_config.php pg_connection.php(Rename)
 git status(Status)
 git commit -m "Rename file"(Commit)
-git pull origin master(Update)
 git add <filename>
 git commit <filename> -m "bugfix, in <filename""
+git init
+git remote add origin https://github.com/yrkhanal/yogiGit
+git pull origin master

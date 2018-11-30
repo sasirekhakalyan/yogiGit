@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-<title>Referral Program Elements</title>
+<title>Referral Program Elements by Yogo</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="css/cnrm.css" charset="UTF-8">
 <script src="js/cnrm.js"></script>
@@ -11,7 +11,7 @@
 <body>
 
 
-<h1><center>Referral Program Elements</center></h1>
+<h1><center>Referral Program Elements by Yogi</center></h1>
 
 <form name="insert" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" >
 <div style="overflow-x:auto;" id="mainContiner">

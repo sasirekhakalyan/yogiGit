@@ -5,7 +5,7 @@
    $dbname      = "dbname = cnrm_data";
    $credentials = "user =proforms_app_stg  password=Qhwq0iFZkKAc1NaU";
 
-   $db = pg_connect( "$host $port $dbname $credentials"  );
+   $db = pg_connect( "$host $port $dbname $credentials"  ) or die('failed');;
    if(!$db) {
       echo "Error : Unable to open database\n";
    } else {

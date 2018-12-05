@@ -51,13 +51,6 @@ $sql =<<<EOF
      '$symptoms_list'
 		);
 EOF;
-
-   $ret = pg_query($db, $sql);
-   if(!$ret) {
-      echo pg_last_error($db);
-   } else {
-      echo "Records created successfully\n";
-   }
    pg_close($db);
    
    ?>

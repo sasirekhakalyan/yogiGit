@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-<title>Referral Program Elements by Yogo</title>
+<title>Referral Program Elements</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="css/cnrm.css" charset="UTF-8">
 <script src="js/cnrm.js"></script>

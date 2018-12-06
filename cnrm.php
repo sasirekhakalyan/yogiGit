@@ -11,7 +11,7 @@
 <body>
 
 
-<h1><center>Referral Program Elements by Yogi</center></h1>
+<h1><center>Referral Program Elements</center></h1>
 
 <form name="insert" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" >
 <div style="overflow-x:auto;" id="mainContiner">

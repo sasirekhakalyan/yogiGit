@@ -17,22 +17,37 @@
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
 <script>
 $( document ).ready(function() {
+
+	
 $.ajax({url: "report.php", 
 	dataType: "json",
-	method: "GET",
+	method: "POST",
 	success: function(response){	
-		alert(JSON.stringify(response));
+		
+		var return_data = new Array();
+
+		
 		 $.each(response, function() { 
-             $.each(this, function(key, value){
-                alert(key + " --> " + value.subject_id); 
-                alert(key + " --> " + value.first_name); 
-                alert(key + " --> " + value.middle_name);
-                alert(key + " --> " + value.last_name);
+             $.each(this, function(key, value){         
+                return_data.push({
+                	'subject_id': value.subject_id,
+                	'first_name': value.first_name,
+                	'middle_name': value.middle_name,
+                	'last_name': value.last_name,
+                })
              });
          });
+		
 	
         	$('#cnrm_data').dataTable( {
-        		data: goodResponse,
+            	data:return_data,
+            	"columns": [
+                    { "data": "subject_id" },
+                    { "data": "first_name" },
+                    { "data": "middle_name" },
+                    { "data": "last_name" }
+                  
+                ],
         		dom: 'Bfrtip',
     	        buttons: [
     	            'copy', 'csv', 'excel', 'pdf', 'print'

@@ -12,10 +12,10 @@ while($row = pg_fetch_assoc($result))
        
     );
 }
-//if(isset($data))
-//{
+if(isset($data))
+{
     header('Content-Type: application/json');
-    //echo json_encode($data); 
-    echo json_encode(array("data" => $data));
-//}
+    //echo json_encode(array("data" => $data));
+    echo json_encode(array($data));
+}
 ?>

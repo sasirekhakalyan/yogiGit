@@ -20,9 +20,19 @@ $( document ).ready(function() {
 $.ajax({url: "report.php", 
 	dataType: "json",
 	method: "GET",
-	success: function(result){	
+	success: function(response){	
+		alert(JSON.stringify(response));
+		 $.each(response, function() { 
+             $.each(this, function(key, value){
+                alert(key + " --> " + value.subject_id); 
+                alert(key + " --> " + value.first_name); 
+                alert(key + " --> " + value.middle_name);
+                alert(key + " --> " + value.last_name);
+             });
+         });
+	
         	$('#cnrm_data').dataTable( {
-        		data: result,
+        		data: goodResponse,
         		dom: 'Bfrtip',
     	        buttons: [
     	            'copy', 'csv', 'excel', 'pdf', 'print'

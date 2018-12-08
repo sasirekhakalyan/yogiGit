@@ -41,3 +41,8 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+#Ignoring eclipse default files
+.buildpath
+.project
+.settings
